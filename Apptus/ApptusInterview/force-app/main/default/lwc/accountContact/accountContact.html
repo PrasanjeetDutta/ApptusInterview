@@ -1,0 +1,33 @@
+<template>
+    <lightning-card title="Account Details">
+        <lightning-record-view-form record-id={recordId} object-api-name="Account">
+            <div class="slds-grid slds-wrap slds-box">
+                <template for:each={accountFields} for:item="acc">
+                    <lightning-output-field field-name={acc}
+                        class="slds-col slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-3" key={acc}>
+                    </lightning-output-field>
+
+                </template>
+                <div class="slds-col slds-size--1-of-2 slds-medium-size--1-of-2 slds-large-size--1-of-3">
+                    <p class="slds-text-title">Total No.of Contacts</p>
+                    <div>
+                        {totalContacts}
+                    </div>
+                </div>
+            </div>
+        </lightning-record-view-form>
+
+        <div class="slds-grid">
+            <lightning-card title="Customer Success" class="slds-p-around_medium">
+                <lightning-datatable key-field="id" data={contactCustomerSuccess} columns={columns}
+                    hide-checkbox-column>
+                </lightning-datatable>
+            </lightning-card>
+            <lightning-card title="Application Developer" class="slds-p-around_medium">
+                <lightning-datatable key-field="id2" data={contactApplicationDeveloper} columns={columns}
+                    hide-checkbox-column>
+                </lightning-datatable>
+            </lightning-card>
+        </div>
+    </lightning-card>
+</template>
